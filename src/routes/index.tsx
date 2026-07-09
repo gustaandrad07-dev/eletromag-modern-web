@@ -89,9 +89,8 @@ function Home() {
             <span className="text-xs font-medium">Equipe certificada NR-10 / NR-35</span>
           </div>
         </div>
-
-        </div>
       </section>
+
 
       {/* SERVICES */}
       <section className="container-x py-20">
