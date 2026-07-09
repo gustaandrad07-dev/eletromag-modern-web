@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import empresa from "@/assets/empresa-fachada.png.asset.json";
 import transformadores from "@/assets/transformadores.png.asset.json";
 import poste from "@/assets/instalacao-poste.png.asset.json";
