@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/eletromag-logo.png.asset.json";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
+import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -39,13 +40,14 @@ function Home() {
       {/* HERO — foto do time em campo */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={PLACEHOLDER_IMG}
+          src={heroFundo.url}
           alt=""
           aria-hidden
-          className="absolute inset-0 -z-10 h-full w-full object-cover bg-neutral-600"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/80 to-background" aria-hidden />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-transparent" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
           <img

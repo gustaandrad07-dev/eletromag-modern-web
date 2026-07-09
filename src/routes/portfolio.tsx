@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import empresa from "@/assets/empresa-fachada.png.asset.json";
 import transformadores from "@/assets/transformadores.png.asset.json";
 import poste from "@/assets/instalacao-poste.png.asset.json";
 import painelDisj from "@/assets/painel-disjuntores.png.asset.json";
 import painelMont from "@/assets/painel-montagem.png.asset.json";
+import equipeMaior from "@/assets/equipe-maior.png.asset.json";
+import painelPerigo from "@/assets/painel-disjuntores-perigo.png.asset.json";
+import transformadoresInd from "@/assets/transformadores-industriais.png.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -24,20 +28,32 @@ const projects = [
   { img: poste.url, caption: "Instalação de postes de energia" },
   { img: painelMont.url, caption: "Montagem de painéis elétricos" },
   { img: painelDisj.url, caption: "Painéis de disjuntores e proteção" },
+  { img: equipeMaior.url, caption: "Nossa equipe de especialistas" },
+  { img: painelPerigo.url, caption: "Painéis de proteção e disjuntores" },
+  { img: transformadoresInd.url, caption: "Transformadores de potência" },
 ];
 
 function Portfolio() {
   return (
     <>
-      <section className="container-x py-20">
-        <p className="eyebrow">Portfólio</p>
-        <h1 className="mt-4 max-w-3xl text-5xl font-bold md:text-6xl">
-          Obras que <span className="text-gradient-brand">energizam</span> quem produz.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Uma seleção de projetos entregues pela ELETROMAG — indústria, edifícios
-          corporativos, infraestrutura e geração de energia.
-        </p>
+      <section className="relative isolate overflow-hidden py-20">
+        <img
+          src={heroFundo.url}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
+        <div className="container-x relative">
+          <p className="eyebrow">Portfólio</p>
+          <h1 className="mt-4 max-w-3xl text-5xl font-bold md:text-6xl">
+            Obras que <span className="text-gradient-brand">energizam</span> quem produz.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            Uma seleção de projetos entregues pela ELETROMAG — indútria, edifícios
+            corporativos, infraestrutura e geração de energia.
+          </p>
+        </div>
       </section>
 
       <section className="container-x pb-20">
