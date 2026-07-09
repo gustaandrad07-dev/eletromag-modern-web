@@ -39,6 +39,9 @@ export function SiteFooter() {
           <p>© {new Date().getFullYear()} ELETROMAG. Todos os direitos reservados.</p>
           <p>Energia. Precisão. Confiança.</p>
         </div>
+        <div className="container-x pb-6 text-center text-xs text-muted-foreground">
+          <p>CNPJ: 21.675.420/0001-48</p>
+        </div>
       </div>
     </footer>
   );
