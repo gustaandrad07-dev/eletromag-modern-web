@@ -6,6 +6,9 @@ import transformadores from "@/assets/transformadores.png.asset.json";
 import poste from "@/assets/instalacao-poste.png.asset.json";
 import painelDisj from "@/assets/painel-disjuntores.png.asset.json";
 import painelMont from "@/assets/painel-montagem.png.asset.json";
+import equipeMaior from "@/assets/equipe-maior.png.asset.json";
+import painelPerigo from "@/assets/painel-disjuntores-perigo.png.asset.json";
+import transformadoresInd from "@/assets/transformadores-industriais.png.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -25,6 +28,9 @@ const projects = [
   { img: poste.url, caption: "Instalação de postes de energia" },
   { img: painelMont.url, caption: "Montagem de painéis elétricos" },
   { img: painelDisj.url, caption: "Painéis de disjuntores e proteção" },
+  { img: equipeMaior.url, caption: "Nossa equipe de especialistas" },
+  { img: painelPerigo.url, caption: "Painéis de proteção e disjuntores" },
+  { img: transformadoresInd.url, caption: "Transformadores de potência" },
 ];
 
 function Portfolio() {
