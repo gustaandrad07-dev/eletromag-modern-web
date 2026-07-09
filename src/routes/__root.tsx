@@ -68,17 +68,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "ELETROMAG: engenharia elétrica com precisão, segurança e energia contínua para indústrias, comércios e obras de alta performance.",
+          "ELETROMAG: serviços de engenharia elétrica com precisão, segurança e energia contínua para indústrias, comércios e obras.",
       },
       { name: "author", content: "ELETROMAG" },
-      { property: "og:title", content: "ELETROMAG — Energia que não para" },
+      { property: "og:title", content: "ELETROMAG — Instalações Elétricas Industriais e Prediais" },
       {
         property: "og:description",
         content:
-          "Projetos, instalações e manutenção elétrica industrial e predial com padrão de engenharia certificada.",
+          "ELETROMAG: serviços de engenharia elétrica com precisão, segurança e energia contínua para indústrias, comércios e obras.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ELETROMAG — Instalações Elétricas Industriais e Prediais" },
+      { name: "twitter:description", content: "ELETROMAG: serviços de engenharia elétrica com precisão, segurança e energia contínua para indústrias, comércios e obras." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c494a54-255c-471d-8f21-b8e0e2b5a10f/id-preview-3164819d--f65deaea-8ee2-40b3-9b3e-435b09b0d874.lovable.app-1783610361216.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c494a54-255c-471d-8f21-b8e0e2b5a10f/id-preview-3164819d--f65deaea-8ee2-40b3-9b3e-435b09b0d874.lovable.app-1783610361216.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
