@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Heart, Award, Users, Clock, HardHat, Briefcase } from "lucide-react";
-import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import equipe from "@/assets/equipe-eletromag.png.asset.json";
 import dener from "@/assets/dener-aquino.png.asset.json";
 import irlafe from "@/assets/irlafe-aquino.png.asset.json";
 
@@ -67,7 +67,7 @@ function About() {
             </p>
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={PLACEHOLDER_IMG} alt="" aria-hidden className="aspect-[4/3] w-full object-cover bg-neutral-600" />
+            <img src={equipe.url} alt="Equipe ELETROMAG em campo" className="aspect-[4/3] w-full object-cover bg-neutral-600" />
           </div>
         </div>
       </section>

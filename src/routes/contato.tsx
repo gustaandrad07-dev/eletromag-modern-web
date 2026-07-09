@@ -68,7 +68,7 @@ function Contact() {
             <InfoCard icon={Phone} label="Telefone" value="(92) 99132-7441" note="WhatsApp e chamadas · resposta em até 24h" />
             <InfoCard icon={Mail} label="E-mail comercial" value="engenharia@eletromag-am.com.br" note="Orçamentos e novos projetos · resposta em até 24h" />
             <InfoCard icon={MapPin} label="Endereço" value="R. Kobe, 560" note="Parque 10 de Novembro · Manaus – AM · 69054-645" />
-            <InfoCard icon={Clock} label="Atendimento" value="Segunda a sexta" note="08h às 18h" />
+            <InfoCard icon={Clock} label="Atendimento" value="Segunda a sexta" note="08h às 17h · Sábado 08h às 12h" />
           </aside>
         </div>
       </section>
