@@ -45,18 +45,10 @@ function Portfolio() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
-              <img src={p.img} alt="" aria-hidden className="h-72 w-full object-cover bg-neutral-600 transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+              <img src={p.img} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <div className="flex items-center gap-3">
-                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-red-glow backdrop-blur">{p.tag}</span>
-                  <span className="text-xs text-muted-foreground">{p.stat}</span>
-                </div>
-                <h2 className="mt-3 text-2xl font-bold">{p.title}</h2>
-                <p className="mt-2 max-w-md text-sm text-muted-foreground">{p.desc}</p>
-              </div>
-              <div className="absolute right-6 top-6 rounded-full border border-white/15 bg-background/60 p-2 backdrop-blur transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">
-                <ArrowUpRight className="h-4 w-4" />
+                <h2 className="text-2xl font-bold">{p.caption}</h2>
               </div>
             </article>
           ))}
