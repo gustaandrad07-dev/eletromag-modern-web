@@ -50,7 +50,10 @@ function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-          <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
+          <div className="mt-8 w-fit rounded-xl bg-white p-3 shadow-lg">
+            <img src={heroLogo} alt="ELETROMAG" className="h-12 md:h-16 w-auto" />
+          </div>
+          <p className="eyebrow mt-6">Engenharia elétrica · Manaus / AM</p>
 
           <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
             Energia que <span className="text-gradient-brand">não para</span>.
