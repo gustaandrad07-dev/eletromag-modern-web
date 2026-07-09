@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Heart, Award, Users, Clock, HardHat, Briefcase } from "lucide-react";
-import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import equipe from "@/assets/equipe-eletromag.png.asset.json";
 import dener from "@/assets/dener-aquino.png.asset.json";
 import irlafe from "@/assets/irlafe-aquino.png.asset.json";
 
