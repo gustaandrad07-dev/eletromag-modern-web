@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import hero from "@/assets/hero-electrician.jpg";
-import panel from "@/assets/panel.jpg";
-import industrial from "@/assets/industrial.jpg";
+import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -17,12 +15,12 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { img: panel, tag: "Industrial", title: "Retrofit CCM · Metalúrgica RS", desc: "Substituição completa de quadros de comando com nova instrumentação e supervisão SCADA.", stat: "1.200 kVA" },
-  { img: industrial, tag: "Infraestrutura", title: "Subestação abrigada · Planta SP", desc: "Projeto e execução de subestação abrigada 500 kVA com automação de manobra.", stat: "500 kVA" },
-  { img: hero, tag: "Automação", title: "Linha de envase · Alimentícia MG", desc: "Automação de linha com CLP Siemens, IHM e integração ERP para rastreabilidade.", stat: "12 IHMs" },
-  { img: panel, tag: "Predial", title: "Edifício corporativo · Curitiba", desc: "Instalação elétrica completa em 18 andares, com QGBT, no-break e SPDA classe I.", stat: "18 andares" },
-  { img: industrial, tag: "Solar", title: "Usina fotovoltaica · Fazenda GO", desc: "Sistema on-grid de 320 kWp com monitoramento em nuvem e O&M mensal.", stat: "320 kWp" },
-  { img: hero, tag: "Manutenção", title: "Termografia preditiva · Frigorífico PR", desc: "Contrato anual de termografia e análise de qualidade de energia em 4 unidades.", stat: "4 plantas" },
+  { img: PLACEHOLDER_IMG, tag: "Industrial", title: "Retrofit CCM · Metalúrgica RS", desc: "Substituição completa de quadros de comando com nova instrumentação e supervisão SCADA.", stat: "1.200 kVA" },
+  { img: PLACEHOLDER_IMG, tag: "Infraestrutura", title: "Subestação abrigada · Planta SP", desc: "Projeto e execução de subestação abrigada 500 kVA com automação de manobra.", stat: "500 kVA" },
+  { img: PLACEHOLDER_IMG, tag: "Automação", title: "Linha de envase · Alimentícia MG", desc: "Automação de linha com CLP Siemens, IHM e integração ERP para rastreabilidade.", stat: "12 IHMs" },
+  { img: PLACEHOLDER_IMG, tag: "Predial", title: "Edifício corporativo · Curitiba", desc: "Instalação elétrica completa em 18 andares, com QGBT, no-break e SPDA classe I.", stat: "18 andares" },
+  { img: PLACEHOLDER_IMG, tag: "Solar", title: "Usina fotovoltaica · Fazenda GO", desc: "Sistema on-grid de 320 kWp com monitoramento em nuvem e O&M mensal.", stat: "320 kWp" },
+  { img: PLACEHOLDER_IMG, tag: "Manutenção", title: "Termografia preditiva · Frigorífico PR", desc: "Contrato anual de termografia e análise de qualidade de energia em 4 unidades.", stat: "4 plantas" },
 ];
 
 function Portfolio() {
@@ -43,7 +41,7 @@ function Portfolio() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
-              <img src={p.img} alt={p.title} loading="lazy" className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={p.img} alt="" aria-hidden className="h-72 w-full object-cover bg-neutral-600 transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <div className="flex items-center gap-3">

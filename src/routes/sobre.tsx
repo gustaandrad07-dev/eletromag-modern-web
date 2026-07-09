@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Heart, Award, Users, Clock, HardHat, Briefcase } from "lucide-react";
-import industrial from "@/assets/industrial.jpg";
+import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 import dener from "@/assets/dener-aquino.png.asset.json";
 import irlafe from "@/assets/irlafe-aquino.png.asset.json";
 
@@ -67,7 +67,7 @@ function About() {
             </p>
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={industrial} alt="Planta industrial atendida pela ELETROMAG" loading="lazy" className="w-full object-cover" />
+            <img src={PLACEHOLDER_IMG} alt="" aria-hidden className="aspect-[4/3] w-full object-cover bg-neutral-600" />
           </div>
         </div>
       </section>

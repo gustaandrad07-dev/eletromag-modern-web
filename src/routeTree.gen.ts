@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
-import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as EquipamentosRouteImport } from './routes/equipamentos'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -31,11 +30,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProdutosRoute = ProdutosRouteImport.update({
-  id: '/produtos',
-  path: '/produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -64,7 +58,6 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
-  '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
@@ -74,7 +67,6 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
-  '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
@@ -85,7 +77,6 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
-  '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
@@ -97,7 +88,6 @@ export interface FileRouteTypes {
     | '/contato'
     | '/equipamentos'
     | '/portfolio'
-    | '/produtos'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
@@ -107,7 +97,6 @@ export interface FileRouteTypes {
     | '/contato'
     | '/equipamentos'
     | '/portfolio'
-    | '/produtos'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
@@ -117,7 +106,6 @@ export interface FileRouteTypes {
     | '/contato'
     | '/equipamentos'
     | '/portfolio'
-    | '/produtos'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
@@ -128,7 +116,6 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   EquipamentosRoute: typeof EquipamentosRoute
   PortfolioRoute: typeof PortfolioRoute
-  ProdutosRoute: typeof ProdutosRoute
   ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
@@ -155,13 +142,6 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/produtos': {
-      id: '/produtos'
-      path: '/produtos'
-      fullPath: '/produtos'
-      preLoaderRoute: typeof ProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -200,7 +180,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   EquipamentosRoute: EquipamentosRoute,
   PortfolioRoute: PortfolioRoute,
-  ProdutosRoute: ProdutosRoute,
   ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
