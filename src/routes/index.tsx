@@ -140,7 +140,7 @@ function Home() {
       <section className="container-x py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={PLACEHOLDER_IMG} alt="" aria-hidden width={1200} height={900} className="w-full aspect-[4/3] object-cover bg-neutral-600" />
+            <img src={painelMontagem.url} alt="Equipe ELETROMAG montando painel elétrico" width={1200} height={900} className="w-full aspect-[4/3] object-cover" />
           </div>
           <div>
             <p className="eyebrow">Metodologia</p>
