@@ -4,6 +4,7 @@ import {
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
 import logo from "@/assets/eletromag-logo.png.asset.json";
+import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -139,7 +140,7 @@ function Home() {
       <section className="container-x py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={PLACEHOLDER_IMG} alt="" aria-hidden width={1200} height={900} className="w-full aspect-[4/3] object-cover bg-neutral-600" />
+            <img src={painelMontagem.url} alt="Equipe ELETROMAG montando painel elétrico" width={1200} height={900} className="w-full aspect-[4/3] object-cover" />
           </div>
           <div>
             <p className="eyebrow">Metodologia</p>

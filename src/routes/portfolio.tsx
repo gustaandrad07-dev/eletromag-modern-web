@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import empresa from "@/assets/empresa-fachada.png.asset.json";
+import transformadores from "@/assets/transformadores.png.asset.json";
+import poste from "@/assets/instalacao-poste.png.asset.json";
+import painelDisj from "@/assets/painel-disjuntores.png.asset.json";
+import painelMont from "@/assets/painel-montagem.png.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -15,12 +19,11 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { img: PLACEHOLDER_IMG, tag: "Industrial", title: "Retrofit CCM · Metalúrgica RS", desc: "Substituição completa de quadros de comando com nova instrumentação e supervisão SCADA.", stat: "1.200 kVA" },
-  { img: PLACEHOLDER_IMG, tag: "Infraestrutura", title: "Subestação abrigada · Planta SP", desc: "Projeto e execução de subestação abrigada 500 kVA com automação de manobra.", stat: "500 kVA" },
-  { img: PLACEHOLDER_IMG, tag: "Automação", title: "Linha de envase · Alimentícia MG", desc: "Automação de linha com CLP Siemens, IHM e integração ERP para rastreabilidade.", stat: "12 IHMs" },
-  { img: PLACEHOLDER_IMG, tag: "Predial", title: "Edifício corporativo · Curitiba", desc: "Instalação elétrica completa em 18 andares, com QGBT, no-break e SPDA classe I.", stat: "18 andares" },
-  { img: PLACEHOLDER_IMG, tag: "Solar", title: "Usina fotovoltaica · Fazenda GO", desc: "Sistema on-grid de 320 kWp com monitoramento em nuvem e O&M mensal.", stat: "320 kWp" },
-  { img: PLACEHOLDER_IMG, tag: "Manutenção", title: "Termografia preditiva · Frigorífico PR", desc: "Contrato anual de termografia e análise de qualidade de energia em 4 unidades.", stat: "4 plantas" },
+  { img: empresa.url, caption: "Conheça nossa empresa" },
+  { img: transformadores.url, caption: "Transformadores que fornecemos" },
+  { img: poste.url, caption: "Instalação de postes de energia" },
+  { img: painelMont.url, caption: "Montagem de painéis elétricos" },
+  { img: painelDisj.url, caption: "Painéis de disjuntores e proteção" },
 ];
 
 function Portfolio() {
@@ -41,18 +44,10 @@ function Portfolio() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
-              <img src={p.img} alt="" aria-hidden className="h-72 w-full object-cover bg-neutral-600 transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+              <img src={p.img} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <div className="flex items-center gap-3">
-                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-red-glow backdrop-blur">{p.tag}</span>
-                  <span className="text-xs text-muted-foreground">{p.stat}</span>
-                </div>
-                <h2 className="mt-3 text-2xl font-bold">{p.title}</h2>
-                <p className="mt-2 max-w-md text-sm text-muted-foreground">{p.desc}</p>
-              </div>
-              <div className="absolute right-6 top-6 rounded-full border border-white/15 bg-background/60 p-2 backdrop-blur transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">
-                <ArrowUpRight className="h-4 w-4" />
+                <h2 className="text-2xl font-bold">{p.caption}</h2>
               </div>
             </article>
           ))}
