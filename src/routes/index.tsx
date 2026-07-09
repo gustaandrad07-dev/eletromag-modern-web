@@ -51,7 +51,7 @@ function Home() {
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
           <img
-            src={logo.url}
+            src={logo}
             alt="ELETROMAG"
             width={600}
             height={600}
