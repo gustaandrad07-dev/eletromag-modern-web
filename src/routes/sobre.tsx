@@ -1,14 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Target, Eye, Heart, Award, Users, Clock } from "lucide-react";
+import { Target, Eye, Heart, Award, Users, Clock, HardHat, Briefcase } from "lucide-react";
 import industrial from "@/assets/industrial.jpg";
+import dener from "@/assets/dener-aquino.png.asset.json";
+import irlafe from "@/assets/irlafe-aquino.png.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre a ELETROMAG — Engenharia Elétrica com 15 anos de operação" },
-      { name: "description", content: "Fundada em 2009, a ELETROMAG é referência em instalações elétricas industriais e prediais no Brasil." },
+      { title: "Sobre a ELETROMAG — Engenharia Elétrica com 25+ anos de operação" },
+      { name: "description", content: "Há mais de 25 anos, a ELETROMAG é referência em instalações elétricas industriais e prediais em Manaus e no Amazonas." },
       { property: "og:title", content: "Sobre — ELETROMAG" },
-      { property: "og:description", content: "Nossa história, valores e o time de engenharia por trás da ELETROMAG." },
+      { property: "og:description", content: "Nossa história, valores e a liderança por trás da ELETROMAG." },
     ],
   }),
   component: About,
@@ -21,9 +23,26 @@ const values = [
 ];
 
 const highlights = [
-  { icon: Award, value: "15+", label: "Anos de mercado" },
+  { icon: Award, value: "25+", label: "Anos de mercado" },
   { icon: Users, value: "45", label: "Profissionais no time" },
   { icon: Clock, value: "24/7", label: "Atendimento emergencial" },
+];
+
+const leadership = [
+  {
+    photo: dener.url,
+    name: "Dener Jefferson Horta de Aquino",
+    role: "Engenheiro Responsável",
+    icon: HardHat,
+    desc: "Responsável técnico pelos projetos e execuções da ELETROMAG, garantindo conformidade com as normas NR-10, NR-35 e ART do CREA em cada obra entregue.",
+  },
+  {
+    photo: irlafe.url,
+    name: "Antonia Irlafe Alves de Aquino",
+    role: "Gestora Responsável",
+    icon: Briefcase,
+    desc: "À frente da gestão administrativa e operacional da empresa, coordena equipes, contratos e o relacionamento com clientes corporativos e industriais.",
+  },
 ];
 
 function About() {
@@ -37,8 +56,8 @@ function About() {
               Engenharia elétrica com <span className="text-gradient-brand">assinatura de precisão</span>.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Desde 2009, a ELETROMAG atua em obras industriais, prediais e
-              infraestrutura energética — combinando engenharia rigorosa, equipe
+              Há mais de 25 anos, a ELETROMAG atua em obras industriais, prediais
+              e infraestrutura energética — combinando engenharia rigorosa, equipe
               própria certificada e responsabilidade técnica CREA em cada projeto.
             </p>
             <p className="mt-4 text-muted-foreground">
@@ -63,6 +82,46 @@ function About() {
               <h2 className="mt-5 text-xl font-semibold">{v.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LIDERANÇA */}
+      <section className="container-x py-20">
+        <div className="max-w-2xl">
+          <p className="eyebrow">Liderança</p>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+            Quem responde por <span className="text-gradient-brand">cada projeto</span>.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Uma liderança presente em campo e nos bastidores — engenharia responsável
+            e gestão dedicada, lado a lado.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {leadership.map((p) => (
+            <article key={p.name} className="card-surface group overflow-hidden">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-white/5">
+                <img
+                  src={p.photo}
+                  alt={p.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-background/70 px-3 py-1 text-xs backdrop-blur">
+                    <p.icon className="h-3.5 w-3.5 text-brand-red-glow" />
+                    <span className="font-medium">{p.role}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl font-bold">{p.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>

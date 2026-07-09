@@ -20,7 +20,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "15+", label: "Anos de operação" },
+  { value: "25+", label: "Anos de operação" },
   { value: "480", label: "Obras entregues" },
   { value: "24/7", label: "Suporte técnico" },
   { value: "100%", label: "Normas NR-10" },
@@ -43,10 +43,11 @@ function Home() {
           <img
             src={logo.url}
             alt="ELETROMAG"
-            width={260}
-            height={62}
-            className="h-14 w-auto drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-20"
+            width={180}
+            height={44}
+            className="h-10 w-auto drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-12"
           />
+
 
           <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
 
