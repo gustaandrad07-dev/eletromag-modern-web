@@ -45,44 +45,49 @@ function Home() {
           aria-hidden
           className="absolute inset-0 -z-10 h-full w-full object-cover blur-[2px]"
         />
-        <div className="absolute inset-0 -z-10 bg-black/30" aria-hidden />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-black/10" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/60 to-background" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/40 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-          <div className="mt-8 w-fit rounded-xl bg-white p-3 shadow-lg">
-            <img src={heroLogo} alt="ELETROMAG" className="h-12 md:h-16 w-auto" />
-          </div>
-          <p className="eyebrow mt-6">Engenharia elétrica · Manaus / AM</p>
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="eyebrow">Engenharia elétrica · Manaus / AM</p>
 
-          <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
-            Energia que <span className="text-gradient-brand">não para</span>.
-            <br />Precisão que se vê.
-          </h1>
+              <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-6xl">
+                Energia que <span className="text-gradient-brand">não para</span>.
+                <br />Precisão que se vê.
+              </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
-            e prediais com padrão de engenharia certificada — do primeiro cabo
-            ao último painel energizado.
-          </p>
+              <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+                A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
+                e prediais com padrão de engenharia certificada — do primeiro cabo
+                ao último painel energizado.
+              </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://api.whatsapp.com/send?phone=5592981096674&text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              <WhatsAppIcon className="h-4 w-4" /> Faça seu orçamento
-            </a>
-            <Link to="/servicos" className="btn-ghost">
-              Ver serviços <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://api.whatsapp.com/send?phone=5592981096674&text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Faça seu orçamento
+                </a>
+                <Link to="/servicos" className="btn-ghost">
+                  Ver serviços <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
 
-          <div className="mt-10 inline-flex max-w-fit items-center gap-2 rounded-full border border-white/15 bg-background/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
-            <MapPin className="h-3.5 w-3.5 text-brand-red-glow" />
-            R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM
+              <div className="mt-10 inline-flex max-w-fit items-center gap-2 rounded-full border border-white/15 bg-background/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
+                <MapPin className="h-3.5 w-3.5 text-brand-red-glow" />
+                R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM
+              </div>
+            </div>
+
+            <div className="flex justify-center md:justify-end">
+              <img src={heroLogo} alt="ELETROMAG" className="h-24 w-auto md:h-32 lg:h-40 drop-shadow-2xl" />
+            </div>
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:grid-cols-4 md:max-w-3xl">
