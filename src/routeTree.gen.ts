@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as EquipamentosRouteImport } from './routes/equipamentos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EquipamentosRoute = EquipamentosRouteImport.update({
+  id: '/equipamentos',
+  path: '/equipamentos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/equipamentos': typeof EquipamentosRoute
   '/portfolio': typeof PortfolioRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contato'
+    | '/equipamentos'
     | '/portfolio'
     | '/produtos'
     | '/servicos'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/equipamentos'
     | '/portfolio'
     | '/produtos'
     | '/servicos'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contato'
+    | '/equipamentos'
     | '/portfolio'
     | '/produtos'
     | '/servicos'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
+  EquipamentosRoute: typeof EquipamentosRoute
   PortfolioRoute: typeof PortfolioRoute
   ProdutosRoute: typeof ProdutosRoute
   ServicosRoute: typeof ServicosRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/equipamentos': {
+      id: '/equipamentos'
+      path: '/equipamentos'
+      fullPath: '/equipamentos'
+      preLoaderRoute: typeof EquipamentosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contato': {
       id: '/contato'
       path: '/contato'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
+  EquipamentosRoute: EquipamentosRoute,
   PortfolioRoute: PortfolioRoute,
   ProdutosRoute: ProdutosRoute,
   ServicosRoute: ServicosRoute,
