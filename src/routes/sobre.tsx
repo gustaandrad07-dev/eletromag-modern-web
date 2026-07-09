@@ -24,7 +24,7 @@ const values = [
 
 const highlights = [
   { icon: Award, value: "25+", label: "Anos de mercado" },
-  { icon: Users, value: "45", label: "Profissionais no time" },
+  { icon: Users, value: "70", label: "Profissionais no time" },
   { icon: Clock, value: "24/7", label: "Atendimento emergencial" },
 ];
 
