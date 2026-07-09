@@ -31,14 +31,14 @@ const highlights = [
 const leadership = [
   {
     photo: dener.url,
-    name: "Dener Jefferson Horta de Aquino",
+    name: "Dener Aquino",
     role: "Engenheiro Responsável",
     icon: HardHat,
     desc: "Responsável técnico pelos projetos e execuções da ELETROMAG, garantindo conformidade com as normas NR-10, NR-35 e ART do CREA em cada obra entregue.",
   },
   {
     photo: irlafe.url,
-    name: "Antonia Irlafe Alves de Aquino",
+    name: "Antonia Aquino",
     role: "Gestora Responsável",
     icon: Briefcase,
     desc: "À frente da gestão administrativa e operacional da empresa, coordena equipes, contratos e o relacionamento com clientes corporativos e industriais.",
