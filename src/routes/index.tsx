@@ -85,8 +85,10 @@ function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center md:justify-end">
-              <img src={heroLogo} alt="ELETROMAG" className="h-24 w-auto md:h-32 lg:h-40 drop-shadow-2xl" />
+            <div className="flex justify-center md:justify-end md:pr-4">
+              <div className="rounded-2xl bg-white p-4 shadow-2xl">
+                <img src={heroLogo} alt="ELETROMAG" className="h-24 w-auto md:h-32 lg:h-40" />
+              </div>
             </div>
           </div>
 
