@@ -3,9 +3,9 @@ import {
   Zap, ShieldCheck, Cpu, Wrench, ArrowRight, Factory, Building2,
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
+import logo from "@/assets/hero-logo-eletromag.png";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
-import heroLogo from "@/assets/hero-logo-eletromag.png";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -43,53 +43,52 @@ function Home() {
           src={heroFundo.url}
           alt=""
           aria-hidden
-          className="absolute inset-0 -z-10 h-full w-full object-cover blur-[2px]"
+          className="absolute inset-0 -z-10 h-full w-full object-cover blur-sm"
         />
-        <div className="absolute inset-0 -z-10 bg-black/10" aria-hidden />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/60 to-background" aria-hidden />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/40 to-transparent" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="eyebrow">Engenharia elétrica · Manaus / AM</p>
+          <img
+            src={logo}
+            alt="ELETROMAG"
+            width={600}
+            height={600}
+            className="self-start h-24 w-auto object-contain drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-36 lg:h-44"
+          />
 
-              <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-6xl">
-                Energia que <span className="text-gradient-brand">não para</span>.
-                <br />Precisão que se vê.
-              </h1>
 
-              <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
-                e prediais com padrão de engenharia certificada — do primeiro cabo
-                ao último painel energizado.
-              </p>
+          <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="https://api.whatsapp.com/send?phone=5592981096674&text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <WhatsAppIcon className="h-4 w-4" /> Faça seu orçamento
-                </a>
-                <Link to="/servicos" className="btn-ghost">
-                  Ver serviços <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+          <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
+            Energia que <span className="text-gradient-brand">não para</span>.
+            <br />Precisão que se vê.
+          </h1>
 
-              <div className="mt-10 inline-flex max-w-fit items-center gap-2 rounded-full border border-white/15 bg-background/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
-                <MapPin className="h-3.5 w-3.5 text-brand-red-glow" />
-                R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM
-              </div>
-            </div>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
+            e prediais com padrão de engenharia certificada — do primeiro cabo
+            ao último painel energizado.
+          </p>
 
-            <div className="flex justify-center md:justify-end md:pr-4">
-              <div className="rounded-2xl bg-white p-4 shadow-2xl">
-                <img src={heroLogo} alt="ELETROMAG" className="h-24 w-auto md:h-32 lg:h-40" />
-              </div>
-            </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://api.whatsapp.com/send?phone=5592981096674&text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <WhatsAppIcon className="h-4 w-4" /> Faça seu orçamento
+            </a>
+            <Link to="/servicos" className="btn-ghost">
+              Ver serviços <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-10 inline-flex max-w-fit items-center gap-2 rounded-full border border-white/15 bg-background/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
+            <MapPin className="h-3.5 w-3.5 text-brand-red-glow" />
+            R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:grid-cols-4 md:max-w-3xl">
