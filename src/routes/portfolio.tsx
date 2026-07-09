@@ -30,15 +30,24 @@ const projects = [
 function Portfolio() {
   return (
     <>
-      <section className="container-x py-20">
-        <p className="eyebrow">Portfólio</p>
-        <h1 className="mt-4 max-w-3xl text-5xl font-bold md:text-6xl">
-          Obras que <span className="text-gradient-brand">energizam</span> quem produz.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Uma seleção de projetos entregues pela ELETROMAG — indústria, edifícios
-          corporativos, infraestrutura e geração de energia.
-        </p>
+      <section className="relative isolate overflow-hidden py-20">
+        <img
+          src={heroFundo.url}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
+        <div className="container-x relative">
+          <p className="eyebrow">Portfólio</p>
+          <h1 className="mt-4 max-w-3xl text-5xl font-bold md:text-6xl">
+            Obras que <span className="text-gradient-brand">energizam</span> quem produz.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            Uma seleção de projetos entregues pela ELETROMAG — indútria, edifícios
+            corporativos, infraestrutura e geração de energia.
+          </p>
+        </div>
       </section>
 
       <section className="container-x pb-20">
