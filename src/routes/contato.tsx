@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MapPin, Clock, Zap, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Clock, Zap, CheckCircle2, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -82,6 +82,7 @@ function Contact() {
           </div>
 
           <aside className="space-y-4 lg:col-span-2">
+            <InfoCard icon={Phone} label="Telefone" value="(92) 99132-7441" note="WhatsApp e chamadas · resposta em até 24h" />
             <InfoCard icon={Mail} label="E-mail comercial" value="engenharia@eletromag-am.com.br" note="Orçamentos e novos projetos · resposta em até 24h" />
             <InfoCard icon={MapPin} label="Endereço" value="R. Kobe, 560" note="Parque 10 de Novembro · Manaus – AM · 69054-645" />
             <InfoCard icon={Clock} label="Atendimento" value="Segunda a sexta" note="08h às 18h" />
