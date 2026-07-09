@@ -38,9 +38,10 @@ function Home() {
       {/* HERO — foto do time em campo */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={heroPhoto.url}
-          alt="Equipe ELETROMAG operando em subestação"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          src={PLACEHOLDER_IMG}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 -z-10 h-full w-full object-cover bg-neutral-600"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/80 to-background" aria-hidden />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-transparent" aria-hidden />
@@ -138,7 +139,7 @@ function Home() {
       <section className="container-x py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={panel} alt="Painel elétrico industrial instalado pela ELETROMAG" width={1200} height={900} loading="lazy" className="w-full object-cover" />
+            <img src={PLACEHOLDER_IMG} alt="" aria-hidden width={1200} height={900} className="w-full aspect-[4/3] object-cover bg-neutral-600" />
           </div>
           <div>
             <p className="eyebrow">Metodologia</p>
@@ -171,7 +172,7 @@ function Home() {
       {/* BIG BANNER CTA */}
       <section className="container-x py-16">
         <div className="relative overflow-hidden rounded-3xl border border-white/10">
-          <img src={industrial} alt="Planta industrial atendida pela ELETROMAG" width={1600} height={900} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-40" />
+          <img src={PLACEHOLDER_IMG} alt="" aria-hidden width={1600} height={900} className="absolute inset-0 h-full w-full object-cover opacity-40 bg-neutral-600" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
           <div className="relative grid gap-8 p-10 md:grid-cols-2 md:p-16">
             <div>
