@@ -1,6 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import empresa from "@/assets/empresa-fachada.png.asset.json";
+import transformadores from "@/assets/transformadores.png.asset.json";
+import poste from "@/assets/instalacao-poste.png.asset.json";
+import painelDisj from "@/assets/painel-disjuntores.png.asset.json";
+import painelMont from "@/assets/painel-montagem.png.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -15,12 +20,11 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { img: PLACEHOLDER_IMG, tag: "Industrial", title: "Retrofit CCM · Metalúrgica RS", desc: "Substituição completa de quadros de comando com nova instrumentação e supervisão SCADA.", stat: "1.200 kVA" },
-  { img: PLACEHOLDER_IMG, tag: "Infraestrutura", title: "Subestação abrigada · Planta SP", desc: "Projeto e execução de subestação abrigada 500 kVA com automação de manobra.", stat: "500 kVA" },
-  { img: PLACEHOLDER_IMG, tag: "Automação", title: "Linha de envase · Alimentícia MG", desc: "Automação de linha com CLP Siemens, IHM e integração ERP para rastreabilidade.", stat: "12 IHMs" },
-  { img: PLACEHOLDER_IMG, tag: "Predial", title: "Edifício corporativo · Curitiba", desc: "Instalação elétrica completa em 18 andares, com QGBT, no-break e SPDA classe I.", stat: "18 andares" },
-  { img: PLACEHOLDER_IMG, tag: "Solar", title: "Usina fotovoltaica · Fazenda GO", desc: "Sistema on-grid de 320 kWp com monitoramento em nuvem e O&M mensal.", stat: "320 kWp" },
-  { img: PLACEHOLDER_IMG, tag: "Manutenção", title: "Termografia preditiva · Frigorífico PR", desc: "Contrato anual de termografia e análise de qualidade de energia em 4 unidades.", stat: "4 plantas" },
+  { img: empresa.url, caption: "Conheça nossa empresa" },
+  { img: transformadores.url, caption: "Transformadores que fornecemos" },
+  { img: poste.url, caption: "Instalação de postes de energia" },
+  { img: painelMont.url, caption: "Montagem de painéis elétricos" },
+  { img: painelDisj.url, caption: "Painéis de disjuntores e proteção" },
 ];
 
 function Portfolio() {
