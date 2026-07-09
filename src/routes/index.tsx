@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Zap, ShieldCheck, Cpu, Wrench, ArrowRight, Factory, Building2,
-  Sparkles, CheckCircle2, Gauge,
+  Sparkles, CheckCircle2, Gauge, MapPin,
 } from "lucide-react";
-import hero from "@/assets/hero-electrician.jpg";
+import heroPhoto from "@/assets/hero-eletromag.jpg.asset.json";
+import logo from "@/assets/eletromag-logo.png.asset.json";
 import panel from "@/assets/panel.jpg";
 import industrial from "@/assets/industrial.jpg";
 
@@ -28,68 +29,68 @@ const stats = [
 function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
-        <div className="container-x relative grid gap-12 py-20 md:grid-cols-12 md:py-28">
-          <div className="md:col-span-7">
-            <p className="eyebrow">Engenharia elétrica · desde 2009</p>
-            <h1 className="mt-6 text-5xl font-bold leading-[1.02] md:text-7xl">
-              Energia que <span className="text-gradient-brand">não para</span>.
-              <br />Precisão que se vê.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
-              e prediais com padrão de engenharia certificada — do primeiro cabo
-              ao último painel energizado.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contato" className="btn-primary">
-                <Zap className="h-4 w-4" /> Solicitar orçamento
-              </Link>
-              <Link to="/servicos" className="btn-ghost">
-                Ver serviços <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+      {/* HERO — foto do time em campo */}
+      <section className="relative isolate overflow-hidden">
+        <img
+          src={heroPhoto.url}
+          alt="Equipe ELETROMAG operando em subestação"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/80 to-background" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/70 to-transparent" aria-hidden />
 
-            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/5 pt-8 md:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-display text-3xl font-bold text-foreground">{s.value}</div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
-                </div>
-              ))}
-            </div>
+        <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
+          <img
+            src={logo.url}
+            alt="ELETROMAG"
+            width={260}
+            height={62}
+            className="h-14 w-auto drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-20"
+          />
+
+          <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
+
+          <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
+            Energia que <span className="text-gradient-brand">não para</span>.
+            <br />Precisão que se vê.
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            A ELETROMAG projeta, instala e mantém sistemas elétricos industriais
+            e prediais com padrão de engenharia certificada — do primeiro cabo
+            ao último painel energizado.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/contato" className="btn-primary">
+              <Zap className="h-4 w-4" /> Solicitar orçamento
+            </Link>
+            <Link to="/servicos" className="btn-ghost">
+              Ver serviços <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          <div className="relative md:col-span-5">
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-panel">
-              <img
-                src={hero}
-                alt="Eletricista da ELETROMAG trabalhando em painel industrial"
-                width={1600}
-                height={1100}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent p-6">
-                <div className="flex items-center gap-3">
-                  <div className="rounded-full bg-brand-red p-2"><ShieldCheck className="h-4 w-4 text-white" /></div>
-                  <div>
-                    <p className="text-sm font-semibold">Equipe certificada NR-10 / NR-35</p>
-                    <p className="text-xs text-muted-foreground">Segurança auditada em cada obra</p>
-                  </div>
-                </div>
+          <div className="mt-10 inline-flex max-w-fit items-center gap-2 rounded-full border border-white/15 bg-background/60 px-4 py-2 text-xs text-muted-foreground backdrop-blur">
+            <MapPin className="h-3.5 w-3.5 text-brand-red-glow" />
+            R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 md:grid-cols-4 md:max-w-3xl">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="font-display text-3xl font-bold text-foreground">{s.value}</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
               </div>
-            </div>
-            <div className="absolute -right-4 -top-4 hidden rounded-2xl border border-white/10 bg-surface/90 p-4 backdrop-blur md:block">
-              <div className="flex items-center gap-2 text-xs">
-                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                Rede energizada · 3ph 380V
-              </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="mt-10 inline-flex max-w-fit items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur">
+            <div className="rounded-full bg-brand-red p-1.5"><ShieldCheck className="h-3.5 w-3.5 text-white" /></div>
+            <span className="text-xs font-medium">Equipe certificada NR-10 / NR-35</span>
           </div>
         </div>
       </section>
+
 
       {/* SERVICES */}
       <section className="container-x py-20">
