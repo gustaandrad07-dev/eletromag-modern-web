@@ -3,7 +3,6 @@ import {
   Zap, ShieldCheck, Cpu, Wrench, ArrowRight, Factory, Building2,
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
-import logo from "@/assets/hero-logo-eletromag.png";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
@@ -50,15 +49,6 @@ function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-          <img
-            src={logo}
-            alt="ELETROMAG"
-            width={600}
-            height={600}
-            className="self-start h-24 w-auto object-contain drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-36 lg:h-44"
-          />
-
-
           <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
 
           <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
