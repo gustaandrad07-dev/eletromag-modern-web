@@ -20,7 +20,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "15+", label: "Anos de operação" },
+  { value: "25+", label: "Anos de operação" },
   { value: "480", label: "Obras entregues" },
   { value: "24/7", label: "Suporte técnico" },
   { value: "100%", label: "Normas NR-10" },
