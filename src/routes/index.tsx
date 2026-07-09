@@ -45,7 +45,7 @@ function Home() {
             alt="ELETROMAG"
             width={180}
             height={44}
-            className="h-10 w-auto drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-12"
+            className="h-12 w-auto object-contain drop-shadow-[0_8px_30px_rgba(225,29,42,0.35)] md:h-14"
           />
 
 
