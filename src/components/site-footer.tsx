@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/eletromag-logo.png.asset.json";
 
 export function SiteFooter() {
