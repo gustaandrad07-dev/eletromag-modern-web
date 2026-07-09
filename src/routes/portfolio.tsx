@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 import empresa from "@/assets/empresa-fachada.png.asset.json";
 import transformadores from "@/assets/transformadores.png.asset.json";
