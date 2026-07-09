@@ -4,6 +4,7 @@ import {
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
 import logo from "@/assets/eletromag-logo.png.asset.json";
+import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
