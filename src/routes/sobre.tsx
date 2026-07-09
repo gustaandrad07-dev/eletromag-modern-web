@@ -67,7 +67,7 @@ function About() {
             </p>
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-white/10">
-            <img src={PLACEHOLDER_IMG} alt="" aria-hidden className="aspect-[4/3] w-full object-cover bg-neutral-600" />
+            <img src={equipe.url} alt="Equipe ELETROMAG em campo" className="aspect-[4/3] w-full object-cover bg-neutral-600" />
           </div>
         </div>
       </section>
