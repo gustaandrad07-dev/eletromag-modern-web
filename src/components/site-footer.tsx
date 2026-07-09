@@ -27,6 +27,7 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold text-foreground">Contato</h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2"><Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-red-glow" /> (92) 99132-7441</li>
             <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-red-glow" /> engenharia@eletromag-am.com.br</li>
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-red-glow" /> R. Kobe, 560 · Parque 10 de Novembro · Manaus – AM · 69054-645</li>
           </ul>
