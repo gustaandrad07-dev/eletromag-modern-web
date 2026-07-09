@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
+import heroLogo from "@/assets/hero-logo-eletromag.png";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -42,14 +43,17 @@ function Home() {
           src={heroFundo.url}
           alt=""
           aria-hidden
-          className="absolute inset-0 -z-10 h-full w-full object-cover blur-sm"
+          className="absolute inset-0 -z-10 h-full w-full object-cover blur-[2px]"
         />
-        <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-black/30" aria-hidden />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/60 to-transparent" aria-hidden />
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-          <p className="eyebrow mt-8">Engenharia elétrica · Manaus / AM</p>
+          <div className="mt-8 w-fit rounded-xl bg-white p-3 shadow-lg">
+            <img src={heroLogo} alt="ELETROMAG" className="h-12 md:h-16 w-auto" />
+          </div>
+          <p className="eyebrow mt-6">Engenharia elétrica · Manaus / AM</p>
 
           <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] md:text-7xl">
             Energia que <span className="text-gradient-brand">não para</span>.
