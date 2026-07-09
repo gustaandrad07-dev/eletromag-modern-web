@@ -97,6 +97,11 @@
   html {
     scroll-behavior: smooth;
   }
+  @media (min-width: 1024px) {
+    html {
+      font-size: 15px;
+    }
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
