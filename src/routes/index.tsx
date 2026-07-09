@@ -3,10 +3,8 @@ import {
   Zap, ShieldCheck, Cpu, Wrench, ArrowRight, Factory, Building2,
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
-import heroPhoto from "@/assets/hero-eletromag.jpg.asset.json";
 import logo from "@/assets/eletromag-logo.png.asset.json";
-import panel from "@/assets/panel.jpg";
-import industrial from "@/assets/industrial.jpg";
+import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
