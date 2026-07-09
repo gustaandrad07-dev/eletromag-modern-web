@@ -3,7 +3,7 @@ import {
   Zap, ShieldCheck, Cpu, Wrench, ArrowRight, Factory, Building2,
   Sparkles, CheckCircle2, Gauge, MapPin, Phone,
 } from "lucide-react";
-import logo from "@/assets/hero-logo-eletromag.png.asset.json";
+import logo from "@/assets/hero-logo-eletromag.png";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
@@ -51,7 +51,7 @@ function Home() {
 
         <div className="container-x relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
           <img
-            src={logo.url}
+            src={logo}
             alt="ELETROMAG"
             width={600}
             height={600}
