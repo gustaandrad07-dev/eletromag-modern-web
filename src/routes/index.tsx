@@ -23,13 +23,13 @@ export const Route = createFileRoute("/")({
 const services = [
   { icon: Factory, title: "Elétrica Industrial", desc: "Painéis, quadros de comando, aterramento e infraestrutura para plantas produtivas." },
   { icon: Building2, title: "Elétrica Predial", desc: "Instalações completas em edifícios comerciais, condomínios e obras corporativas." },
-  { icon: Cpu, title: "Automação & CFTV", desc: "Sistemas de automação, controle e monitoramento com integração inteligente." },
+  { icon: Cpu, title: "Automação Industrial", desc: "Sistemas de automação, controle e supervisão com CLPs, IHMs e integração de plantas." },
   { icon: Wrench, title: "Manutenção Preventiva", desc: "Contratos de manutenção com equipe 24h para eliminar paradas não programadas." },
 ];
 
 const stats = [
   { value: "25+", label: "Anos de operação" },
-  { value: "480", label: "Obras entregues" },
+  { value: "1000+", label: "Obras entregues" },
   { value: "24/7", label: "Suporte técnico" },
   { value: "100%", label: "Normas NR-10" },
 ];

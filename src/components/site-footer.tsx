@@ -19,6 +19,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/sobre" className="hover:text-foreground">Sobre nós</Link></li>
             <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
+            <li><Link to="/equipamentos" className="hover:text-foreground">Equipamentos</Link></li>
             <li><Link to="/portfolio" className="hover:text-foreground">Portfólio</Link></li>
             <li><Link to="/produtos" className="hover:text-foreground">Produtos</Link></li>
           </ul>
@@ -38,6 +39,9 @@ export function SiteFooter() {
         <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-xs text-muted-foreground md:flex-row">
           <p>© {new Date().getFullYear()} ELETROMAG. Todos os direitos reservados.</p>
           <p>Energia. Precisão. Confiança.</p>
+        </div>
+        <div className="container-x pb-6 text-center text-xs text-muted-foreground">
+          <p>CNPJ: 21.675.420/0001-48</p>
         </div>
       </div>
     </footer>

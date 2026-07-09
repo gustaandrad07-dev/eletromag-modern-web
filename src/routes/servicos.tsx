@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Factory, Building2, Cpu, Wrench, Zap, Lightbulb, ShieldCheck, Battery,
-  Camera, Cable, ArrowRight,
+  Activity, Cable, ArrowRight, HardHat,
 } from "lucide-react";
 
 export const Route = createFileRoute("/servicos")({
@@ -20,7 +20,8 @@ const services = [
   { icon: Factory, title: "Elétrica Industrial", desc: "Montagem de painéis, quadros de comando, barramentos, subestações e alimentação de máquinas.", items: ["Painéis CCM e QGBT", "Instalação de motores", "Aterramento industrial", "Retrofit de plantas"] },
   { icon: Building2, title: "Elétrica Predial e Comercial", desc: "Projetos e execução em edifícios, condomínios, lojas e escritórios com padrão de acabamento.", items: ["Entrada de energia", "Circuitos e tomadas", "Iluminação profissional", "Adequação NBR 5410"] },
   { icon: Cpu, title: "Automação Industrial", desc: "Programação de CLPs, IHMs, inversores e sistemas SCADA para linhas de produção.", items: ["CLP Siemens / Allen-Bradley", "Inversores de frequência", "Supervisórios", "Retrofit de comando"] },
-  { icon: Camera, title: "CFTV e Segurança", desc: "Câmeras IP, controle de acesso e alarmes integrados com monitoramento remoto.", items: ["Câmeras 4K IP", "Controle de acesso", "Alarme monitorado", "Interfonia"] },
+  { icon: HardHat, title: "Manutenção Preventiva de Subestação", desc: "Inspeções, ensaios elétricos e manutenção completa em subestações de média e alta tensão.", items: ["Termografia em barramentos", "Ensaios em transformadores", "Limpeza e reaperto", "Relatório técnico com ART"] },
+  { icon: Activity, title: "Ensaio de EPCs e EPIs", desc: "Testes elétricos e certificação de equipamentos de proteção coletiva e individual conforme NR-10.", items: ["Ensaio dielétrico", "Vara de manobra", "Luvas isolantes", "Aterramento temporário"] },
   { icon: ShieldCheck, title: "SPDA & Aterramento", desc: "Sistemas de proteção contra descargas atmosféricas e malhas de aterramento certificadas.", items: ["Projeto NBR 5419", "Medição ôhmica", "Malha de terra", "DPS e equipotencialização"] },
   { icon: Battery, title: "Energia Solar Fotovoltaica", desc: "Projeto e instalação de sistemas on-grid residenciais, comerciais e industriais.", items: ["Dimensionamento", "Homologação junto à concessionária", "Monitoramento em nuvem", "O&M anual"] },
   { icon: Lightbulb, title: "Iluminação Técnica", desc: "Projetos luminotécnicos com cálculo de lux e eficiência energética.", items: ["LED industrial", "Iluminação de emergência", "Lighting design", "Retrofit LED"] },
