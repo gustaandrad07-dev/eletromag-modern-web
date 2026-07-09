@@ -43,7 +43,7 @@ function Home() {
           src={heroFundo.url}
           alt=""
           aria-hidden
-          className="absolute inset-0 -z-10 h-full w-full object-cover blur-sm"
+          className="absolute inset-0 -z-10 h-full w-full object-cover blur-[2px]"
         />
         <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden />
