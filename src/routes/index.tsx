@@ -72,7 +72,7 @@ function Home() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/92981096674?text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
+              href="https://api.whatsapp.com/send?phone=5592981096674&text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
