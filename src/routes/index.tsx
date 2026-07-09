@@ -63,9 +63,14 @@ function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contato" className="btn-primary">
-              <Zap className="h-4 w-4" /> Solicitar orçamento
-            </Link>
+            <a
+              href="https://wa.me/92981096674?text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <WhatsAppIcon className="h-4 w-4" /> Faça seu orçamento
+            </a>
             <Link to="/servicos" className="btn-ghost">
               Ver serviços <ArrowRight className="h-4 w-4" />
             </Link>
