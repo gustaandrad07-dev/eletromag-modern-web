@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import painelMontagem from "@/assets/painel-montagem.png.asset.json";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
+import heroLogo from "@/assets/hero-logo-eletromag.png";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
 
 function WhatsAppIcon({ className }: { className?: string }) {
