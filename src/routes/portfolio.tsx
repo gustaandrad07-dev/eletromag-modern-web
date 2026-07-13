@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
 import empresa from "@/assets/empresa-fachada.png.asset.json";
 import transformadores from "@/assets/transformadores.png.asset.json";
@@ -57,18 +60,9 @@ function Portfolio() {
       </section>
 
       <section className="container-x pb-20">
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
-              <img src={p.img} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <h2 className="text-2xl font-bold">{p.caption}</h2>
-              </div>
-            </article>
-          ))}
-        </div>
+        <PortfolioGrid staticProjects={projects} />
       </section>
+
 
       <section className="container-x pb-16">
         <div className="card-surface flex flex-col items-start gap-6 p-10 md:flex-row md:items-center md:justify-between">
