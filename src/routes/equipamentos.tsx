@@ -102,6 +102,9 @@ function Equipamentos() {
         </div>
       </section>
 
+      <ExtraEquipmentSection />
+
+
       <section className="container-x pb-20">
         <div className="card-surface flex flex-col items-start gap-6 p-10 md:flex-row md:items-center md:justify-between">
           <div>
