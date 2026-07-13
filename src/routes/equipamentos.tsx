@@ -117,3 +117,33 @@ function Equipamentos() {
     </>
   );
 }
+
+function ExtraEquipmentSection() {
+  const { data: items } = useQuery({
+    queryKey: ["equipment-items"],
+    queryFn: async () => {
+      const { data } = await supabase.from("equipment_items").select("*").order("sort_order").order("created_at");
+      return data ?? [];
+    },
+  });
+  if (!items || items.length === 0) return null;
+  return (
+    <section className="container-x pb-20">
+      <div className="card-surface p-8">
+        <div className="mb-6 flex items-center gap-2">
+          <Plus className="h-5 w-5 text-brand-red-glow" />
+          <h2 className="text-xl font-semibold">Mais equipamentos disponíveis</h2>
+        </div>
+        <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((it) => (
+            <li key={it.id} className="rounded-lg border border-white/10 bg-white/5 p-4">
+              <div className="font-semibold">{it.title}</div>
+              {it.description && <div className="mt-1 text-sm text-muted-foreground">{it.description}</div>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
