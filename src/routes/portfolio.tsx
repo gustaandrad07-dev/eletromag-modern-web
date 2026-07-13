@@ -76,3 +76,31 @@ function Portfolio() {
     </>
   );
 }
+
+function PortfolioGrid({ staticProjects }: { staticProjects: { img: string; caption: string }[] }) {
+  const { data: dbItems } = useQuery({
+    queryKey: ["portfolio-items"],
+    queryFn: async () => {
+      const { data } = await supabase.from("portfolio_items").select("*").order("sort_order").order("created_at");
+      return data ?? [];
+    },
+  });
+  const all = [
+    ...(dbItems ?? []).map((d) => ({ img: d.image_url, caption: d.caption })),
+    ...staticProjects,
+  ];
+  return (
+    <div className="grid gap-6 md:grid-cols-2">
+      {all.map((p, i) => (
+        <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
+          <img src={p.img} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <h2 className="text-2xl font-bold">{p.caption}</h2>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+

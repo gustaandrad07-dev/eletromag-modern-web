@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Wrench, Gauge, Zap, ArrowRight, Package } from "lucide-react";
+import { Wrench, Gauge, Zap, ArrowRight, Package, Plus } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+
 
 export const Route = createFileRoute("/equipamentos")({
   head: () => ({
