@@ -1,9 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Zap, ShieldCheck } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 import logo from "@/assets/eletromag-logo.png.asset.json";
-import { useIsAdmin } from "@/lib/admin-hooks";
-
 
 const nav = [
   { to: "/", label: "Início" },
@@ -16,8 +14,6 @@ const nav = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const { data: isAdmin } = useIsAdmin();
-
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
       <div className="container-x flex h-16 items-center justify-between">
@@ -39,17 +35,11 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          {isAdmin && (
-            <Link to="/admin" className="btn-ghost !py-2">
-              <ShieldCheck className="h-4 w-4" /> Admin
-            </Link>
-          )}
+        <div className="hidden md:block">
           <Link to="/contato" className="btn-primary">
             <Zap className="h-4 w-4" /> Orçamento
           </Link>
         </div>
-
 
         <button
           className="btn-ghost md:hidden !p-2"

@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Clock, Phone } from "lucide-react";
-import { useSiteContent } from "@/lib/admin-hooks";
-
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -26,14 +24,6 @@ function WhatsAppIcon({ className }: { className?: string }) {
 const WHATSAPP_URL = "https://wa.me/92981096674?text=Olá+vim+pelo+site+e+gostaria+de+um+orçamento";
 
 function Contact() {
-  const { data: info } = useSiteContent("contact_info", {
-    phone: "(92) 99132-7441",
-    email: "engenharia@eletromag-am.com.br",
-    address: "R. Kobe, 560 · Parque 10 · Manaus/AM",
-    hours_weekdays: "Segunda a Sexta: 08h às 17h",
-    hours_saturday: "Sábado: 08h às 12h",
-  });
-
   return (
     <>
       <section className="container-x py-20">
@@ -63,24 +53,28 @@ function Contact() {
                 <h2 className="text-2xl font-bold">Fale conosco no WhatsApp</h2>
                 <p className="mt-2 text-muted-foreground">Clique no ícone acima e envie sua mensagem.</p>
               </div>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 <WhatsAppIcon className="h-4 w-4" /> Abrir conversa
               </a>
             </div>
           </div>
 
           <aside className="space-y-4 lg:col-span-2">
-            <InfoCard icon={Phone} label="Telefone" value={info?.phone ?? ""} note="WhatsApp e chamadas" />
-            <InfoCard icon={Mail} label="E-mail comercial" value={info?.email ?? ""} note="Orçamentos e novos projetos" />
-            <InfoCard icon={MapPin} label="Endereço" value={info?.address ?? ""} note="Manaus - AM" />
-            <InfoCard icon={Clock} label="Atendimento" value={info?.hours_weekdays ?? ""} note={info?.hours_saturday ?? ""} />
+            <InfoCard icon={Phone} label="Telefone" value="(92) 99132-7441" note="WhatsApp e chamadas · resposta em até 24h" />
+            <InfoCard icon={Mail} label="E-mail comercial" value="engenharia@eletromag-am.com.br" note="Orçamentos e novos projetos · resposta em até 24h" />
+            <InfoCard icon={MapPin} label="Endereço" value="R. Kobe, 560" note="Parque 10 de Novembro · Manaus – AM · 69054-645" />
+            <InfoCard icon={Clock} label="Atendimento" value="Segunda a sexta" note="08h às 17h · Sábado 08h às 12h" />
           </aside>
         </div>
       </section>
     </>
   );
 }
-
 
 function InfoCard({ icon: Icon, label, value, note }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; note: string }) {
   return (
