@@ -21,7 +21,7 @@ export function SiteFooter() {
             <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
             <li><Link to="/equipamentos" className="hover:text-foreground">Equipamentos</Link></li>
             <li><Link to="/portfolio" className="hover:text-foreground">Portfólio</Link></li>
-            
+            <li><Link to="/admin" className="hover:text-foreground/70 text-muted-foreground/60">Admin</Link></li>
           </ul>
         </div>
 

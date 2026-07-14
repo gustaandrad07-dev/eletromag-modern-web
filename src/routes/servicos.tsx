@@ -35,7 +35,7 @@ function Services() {
       <section className="container-x py-20">
         <p className="eyebrow">Serviços</p>
         <h1 className="mt-4 max-w-3xl text-5xl font-bold md:text-6xl">
-          Toda a cadeia elétrica <span className="text-gradient-brand">sob um único CNPJ</span>.
+          Toda a cadeia elétrica <span className="text-gradient-brand">sob engenharia certificada</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           Projeto, execução, comissionamento e manutenção — com equipe própria,
