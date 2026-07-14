@@ -320,7 +320,7 @@ function ContentAdmin() {
 
   async function addKey(key: string) {
     const template = CONTENT_TEMPLATES[key] ?? {};
-    const { error } = await supabase.from("site_content").insert({ key, value: template });
+    const { error } = await supabase.from("site_content").insert({ key, value: template as never });
     if (error) setError(error.message); else reload();
   }
 
