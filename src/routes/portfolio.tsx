@@ -1,14 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PLACEHOLDER_IMG } from "@/lib/placeholder";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import heroFundo from "@/assets/hero-fundo.png.asset.json";
-import empresa from "@/assets/empresa-fachada.png.asset.json";
-import transformadores from "@/assets/transformadores.png.asset.json";
-import poste from "@/assets/instalacao-poste.png.asset.json";
-import painelDisj from "@/assets/painel-disjuntores.png.asset.json";
-import painelMont from "@/assets/painel-montagem.png.asset.json";
-import equipeMaior from "@/assets/equipe-maior.png.asset.json";
-import painelPerigo from "@/assets/painel-disjuntores-perigo.png.asset.json";
-import transformadoresInd from "@/assets/transformadores-industriais.png.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -22,27 +15,20 @@ export const Route = createFileRoute("/portfolio")({
   component: Portfolio,
 });
 
-const projects = [
-  { img: empresa.url, caption: "Conheça nossa empresa" },
-  { img: transformadores.url, caption: "Transformadores que fornecemos" },
-  { img: poste.url, caption: "Instalação de postes de energia" },
-  { img: painelMont.url, caption: "Montagem de painéis elétricos" },
-  { img: painelDisj.url, caption: "Painéis de disjuntores e proteção" },
-  { img: equipeMaior.url, caption: "Nossa equipe de especialistas" },
-  { img: painelPerigo.url, caption: "Painéis de proteção e disjuntores" },
-  { img: transformadoresInd.url, caption: "Transformadores de potência" },
-];
-
 function Portfolio() {
+  const { data: projects = [] } = useQuery({
+    queryKey: ["portfolio_items"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("portfolio_items").select("id, image_url, caption").order("sort_order");
+      if (error) throw error;
+      return data;
+    },
+  });
+
   return (
     <>
       <section className="relative isolate overflow-hidden py-20">
-        <img
-          src={heroFundo.url}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-        />
+        <img src={heroFundo.url} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-black/50" aria-hidden />
         <div className="container-x relative">
           <p className="eyebrow">Portfólio</p>
@@ -50,7 +36,7 @@ function Portfolio() {
             Obras que <span className="text-gradient-brand">energizam</span> quem produz.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Uma seleção de projetos entregues pela ELETROMAG — indútria, edifícios
+            Uma seleção de projetos entregues pela ELETROMAG — indústria, edifícios
             corporativos, infraestrutura e geração de energia.
           </p>
         </div>
@@ -58,9 +44,9 @@ function Portfolio() {
 
       <section className="container-x pb-20">
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <article key={i} className="group relative overflow-hidden rounded-2xl border border-white/10">
-              <img src={p.img} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          {projects.map((p) => (
+            <article key={p.id} className="group relative overflow-hidden rounded-2xl border border-white/10">
+              <img src={p.image_url} alt={p.caption} className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <h2 className="text-2xl font-bold">{p.caption}</h2>

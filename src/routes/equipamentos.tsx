@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Wrench, Gauge, Zap, ArrowRight, Package } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { Wrench, ArrowRight, Package } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/equipamentos")({
   head: () => ({
@@ -13,57 +15,16 @@ export const Route = createFileRoute("/equipamentos")({
   component: Equipamentos,
 });
 
-const categorias = [
-  {
-    icon: Gauge,
-    title: "Medição & Ensaios Elétricos",
-    items: [
-      "Megômetro de 5 kV",
-      "Hipot 60 kV CC",
-      "Micro-ohmímetro",
-      "Analisadores de energia",
-      "TTR (relação de transformação)",
-      "Medidor de campo magnético",
-      "Terrômetro 4 estacas",
-      "Alicate terrômetro",
-      "Medidor de tensão de passo e toque",
-      "Luxímetro",
-      "Sequencímetro",
-      "Capacímetro",
-      "Medidor de bateria",
-      "Teste de oscilografia de abertura de disjuntores",
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "Ferramentas & Segurança",
-    items: [
-      "Vara de manobra",
-      "Caixa monofásica de corrente 100 A",
-      "Alicate prensa-terminais hidráulico",
-      "Aterramentos temporários",
-      "Detector de média tensão",
-      "Termovisores",
-      "Seccionadores de circuitos elétricos",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Geração & Equipamentos Pesados",
-    items: [
-      "Gerador de 140 kVA",
-      "Gerador de 20 kVA",
-      "Máquina termovácuo de 500 litros",
-      "Drone para inspeção",
-      "Tacômetro para motores elétricos",
-      "Alinhador a laser",
-      "Medidor de vibrações de motores elétricos",
-      "Balanceadora de turbinas",
-    ],
-  },
-];
-
 function Equipamentos() {
+  const { data: categorias = [] } = useQuery({
+    queryKey: ["equipment_items"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("equipment_items").select("id, title, description").order("sort_order");
+      if (error) throw error;
+      return data;
+    },
+  });
+
   return (
     <>
       <section className="container-x py-20">
@@ -80,22 +41,25 @@ function Equipamentos() {
 
       <section className="container-x pb-20">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {categorias.map((c) => (
-            <article key={c.title} className="card-surface p-6">
-              <div className="inline-flex rounded-xl border border-white/10 bg-white/5 p-3">
-                <c.icon className="h-5 w-5 text-brand-red-glow" />
-              </div>
-              <h2 className="mt-5 text-xl font-semibold">{c.title}</h2>
-              <ul className="mt-5 space-y-2 border-t border-white/5 pt-4 text-sm">
-                {c.items.map((i) => (
-                  <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-brand-red" />
-                    <span>{i}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+          {categorias.map((c) => {
+            const items = (c.description ?? "").split("\n").map((s) => s.trim()).filter(Boolean);
+            return (
+              <article key={c.id} className="card-surface p-6">
+                <div className="inline-flex rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Wrench className="h-5 w-5 text-brand-red-glow" />
+                </div>
+                <h2 className="mt-5 text-xl font-semibold">{c.title}</h2>
+                <ul className="mt-5 space-y-2 border-t border-white/5 pt-4 text-sm">
+                  {items.map((i) => (
+                    <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                      <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-brand-red" />
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </section>
 
