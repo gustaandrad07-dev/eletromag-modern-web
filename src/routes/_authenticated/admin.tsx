@@ -361,7 +361,7 @@ function ContentCard({ row, onChange }: { row: ContentRow; onChange: () => void 
 
   async function save() {
     setSaving(true);
-    const { error } = await supabase.from("site_content").update({ value: fields, updated_at: new Date().toISOString() }).eq("key", row.key);
+    const { error } = await supabase.from("site_content").update({ value: fields as never, updated_at: new Date().toISOString() }).eq("key", row.key);
     setSaving(false);
     if (error) setMsg(error.message); else { setMsg("Salvo."); onChange(); }
   }
