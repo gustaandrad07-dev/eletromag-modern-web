@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
   component: AdminPage,
 });
 
-type Tab = "portfolio" | "equipment" | "content";
+type Tab = "portfolio" | "equipment" | "services" | "about" | "content";
 type PortfolioItem = { id: string; image_url: string; caption: string; sort_order: number };
 type EquipmentItem = { id: string; title: string; description: string | null; sort_order: number };
 type ContentRow = { key: string; value: Record<string, unknown> };
@@ -68,12 +68,16 @@ function AdminPage() {
       <div className="mt-8 flex flex-wrap gap-2 border-b border-white/10">
         <TabButton active={tab === "portfolio"} onClick={() => setTab("portfolio")} icon={ImageIcon} label="Portfólio" />
         <TabButton active={tab === "equipment"} onClick={() => setTab("equipment")} icon={Package} label="Equipamentos" />
+        <TabButton active={tab === "services"} onClick={() => setTab("services")} icon={Package} label="Serviços" />
+        <TabButton active={tab === "about"} onClick={() => setTab("about")} icon={FileText} label="Sobre" />
         <TabButton active={tab === "content"} onClick={() => setTab("content")} icon={FileText} label="Textos do site" />
       </div>
 
       <div className="mt-8">
         {tab === "portfolio" && <PortfolioAdmin />}
         {tab === "equipment" && <EquipmentAdmin />}
+        {tab === "services" && <ServicesAdmin />}
+        {tab === "about" && <AboutAdmin />}
         {tab === "content" && <ContentAdmin />}
       </div>
     </section>
