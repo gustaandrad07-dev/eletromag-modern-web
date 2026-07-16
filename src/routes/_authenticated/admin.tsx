@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
   component: AdminPage,
 });
 
-type Tab = "portfolio" | "equipment" | "services" | "about" | "content";
+type Tab = "portfolio" | "equipment" | "services" | "about" | "content" | "access";
 type PortfolioItem = { id: string; image_url: string; caption: string; sort_order: number };
 type EquipmentItem = { id: string; title: string; description: string | null; sort_order: number };
 type ContentRow = { key: string; value: Record<string, unknown> };
