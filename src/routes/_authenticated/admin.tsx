@@ -71,6 +71,7 @@ function AdminPage() {
         <TabButton active={tab === "services"} onClick={() => setTab("services")} icon={Package} label="Serviços" />
         <TabButton active={tab === "about"} onClick={() => setTab("about")} icon={FileText} label="Sobre" />
         <TabButton active={tab === "content"} onClick={() => setTab("content")} icon={FileText} label="Textos do site" />
+        <TabButton active={tab === "access"} onClick={() => setTab("access")} icon={ShieldCheck} label="Acessos" />
       </div>
 
       <div className="mt-8">
@@ -79,6 +80,7 @@ function AdminPage() {
         {tab === "services" && <ServicesAdmin />}
         {tab === "about" && <AboutAdmin />}
         {tab === "content" && <ContentAdmin />}
+        {tab === "access" && <AccessAdmin />}
       </div>
     </section>
   );
