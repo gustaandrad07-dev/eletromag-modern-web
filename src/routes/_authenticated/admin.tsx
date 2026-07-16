@@ -46,8 +46,8 @@ function AdminPage() {
     return (
       <section className="container-x py-16">
         <div className="card-surface p-8">
-          <h1 className="text-2xl font-bold">Sem permissão</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Sua conta ({email}) não tem papel de administrador. Peça a um admin existente para conceder acesso.</p>
+          <h1 className="text-2xl font-bold">Aguardando aprovação</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Sua conta ({email}) foi criada, mas ainda não tem acesso ao painel. Peça a um administrador para aprovar seu cadastro na aba "Acessos".</p>
           <button onClick={handleSignOut} className="btn-ghost mt-6"><LogOut className="h-4 w-4" /> Sair</button>
         </div>
       </section>
