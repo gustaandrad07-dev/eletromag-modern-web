@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { LogOut, Image as ImageIcon, Package, FileText, Trash2, Plus, Save, Upload, RefreshCw } from "lucide-react";
+import { LogOut, Image as ImageIcon, Package, FileText, Trash2, Plus, Save, Upload, RefreshCw, ShieldCheck, UserCheck, UserX } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
   component: AdminPage,
 });
 
-type Tab = "portfolio" | "equipment" | "services" | "about" | "content";
+type Tab = "portfolio" | "equipment" | "services" | "about" | "content" | "access";
 type PortfolioItem = { id: string; image_url: string; caption: string; sort_order: number };
 type EquipmentItem = { id: string; title: string; description: string | null; sort_order: number };
 type ContentRow = { key: string; value: Record<string, unknown> };
@@ -46,8 +46,8 @@ function AdminPage() {
     return (
       <section className="container-x py-16">
         <div className="card-surface p-8">
-          <h1 className="text-2xl font-bold">Sem permissão</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Sua conta ({email}) não tem papel de administrador. Peça a um admin existente para conceder acesso.</p>
+          <h1 className="text-2xl font-bold">Aguardando aprovação</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Sua conta ({email}) foi criada, mas ainda não tem acesso ao painel. Peça a um administrador para aprovar seu cadastro na aba "Acessos".</p>
           <button onClick={handleSignOut} className="btn-ghost mt-6"><LogOut className="h-4 w-4" /> Sair</button>
         </div>
       </section>
@@ -71,6 +71,7 @@ function AdminPage() {
         <TabButton active={tab === "services"} onClick={() => setTab("services")} icon={Package} label="Serviços" />
         <TabButton active={tab === "about"} onClick={() => setTab("about")} icon={FileText} label="Sobre" />
         <TabButton active={tab === "content"} onClick={() => setTab("content")} icon={FileText} label="Textos do site" />
+        <TabButton active={tab === "access"} onClick={() => setTab("access")} icon={ShieldCheck} label="Acessos" />
       </div>
 
       <div className="mt-8">
@@ -79,6 +80,7 @@ function AdminPage() {
         {tab === "services" && <ServicesAdmin />}
         {tab === "about" && <AboutAdmin />}
         {tab === "content" && <ContentAdmin />}
+        {tab === "access" && <AccessAdmin />}
       </div>
     </section>
   );
@@ -717,6 +719,97 @@ function ListEditor<T>({ items, onChange, empty, render }: { items: T[]; onChang
         </div>
       ))}
       <button onClick={add} className="btn-ghost"><Plus className="h-4 w-4" /> Adicionar item</button>
+    </div>
+  );
+}
+
+/* ============ ACCESS (approve collaborators) ============ */
+
+type UserRow = { user_id: string; email: string; created_at: string };
+
+function AccessAdmin() {
+  const [pending, setPending] = useState<UserRow[]>([]);
+  const [admins, setAdmins] = useState<UserRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const reload = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rpc = supabase.rpc as any;
+    const [p, a] = await Promise.all([
+      rpc("list_pending_users"),
+      rpc("list_admin_users"),
+    ]);
+    if (p.error) setError(p.error.message);
+    else setPending((p.data ?? []) as UserRow[]);
+    if (a.error) setError(a.error.message);
+    else setAdmins((a.data ?? []) as UserRow[]);
+    setLoading(false);
+  }, []);
+  useEffect(() => { reload(); }, [reload]);
+
+  async function approve(userId: string) {
+    setMsg(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase.rpc as any)("grant_admin_by_user_id", { _user_id: userId });
+    if (error) setMsg(error.message); else { setMsg("Acesso concedido."); reload(); }
+  }
+
+  async function revoke(userId: string) {
+    if (!confirm("Remover acesso de administrador deste usuário?")) return;
+    setMsg(null);
+    const { error } = await supabase.rpc("revoke_admin", { _user_id: userId });
+    if (error) setMsg(error.message); else { setMsg("Acesso removido."); reload(); }
+  }
+
+  if (loading) return <p className="text-muted-foreground">Carregando...</p>;
+
+  return (
+    <div className="space-y-6">
+      {error && <p className="rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">{error}</p>}
+      {msg && <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-sm text-emerald-300">{msg}</p>}
+
+      <article className="card-surface p-5">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold">Cadastros pendentes</h3>
+            <p className="text-xs text-muted-foreground">Colaboradores que criaram conta e aguardam aprovação para acessar o painel.</p>
+          </div>
+          <button onClick={reload} className="btn-ghost"><RefreshCw className="h-4 w-4" /> Atualizar</button>
+        </div>
+        <div className="mt-4 space-y-2">
+          {pending.length === 0 && <p className="text-sm text-muted-foreground">Nenhum cadastro pendente.</p>}
+          {pending.map((u) => (
+            <div key={u.user_id} className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-white/10 bg-background/40 p-3">
+              <div>
+                <p className="text-sm font-medium">{u.email}</p>
+                <p className="text-xs text-muted-foreground">Cadastro: {new Date(u.created_at).toLocaleString("pt-BR")}</p>
+              </div>
+              <button onClick={() => approve(u.user_id)} className="btn-primary"><UserCheck className="h-4 w-4" /> Aprovar como admin</button>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article className="card-surface p-5">
+        <h3 className="text-lg font-semibold">Administradores atuais</h3>
+        <p className="text-xs text-muted-foreground">Contas com acesso total ao painel.</p>
+        <div className="mt-4 space-y-2">
+          {admins.length === 0 && <p className="text-sm text-muted-foreground">Nenhum administrador.</p>}
+          {admins.map((u) => (
+            <div key={u.user_id} className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-white/10 bg-background/40 p-3">
+              <div>
+                <p className="text-sm font-medium">{u.email}</p>
+                <p className="text-xs text-muted-foreground">Desde: {new Date(u.created_at).toLocaleString("pt-BR")}</p>
+              </div>
+              <button onClick={() => revoke(u.user_id)} className="btn-ghost text-red-300"><UserX className="h-4 w-4" /> Remover</button>
+            </div>
+          ))}
+        </div>
+      </article>
     </div>
   );
 }
