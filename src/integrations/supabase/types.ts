@@ -143,6 +143,7 @@ export type Database = {
     }
     Functions: {
       grant_admin_by_email: { Args: { _email: string }; Returns: string }
+      grant_admin_by_user_id: { Args: { _user_id: string }; Returns: undefined }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -151,6 +152,14 @@ export type Database = {
         Returns: boolean
       }
       list_admin_users: {
+        Args: never
+        Returns: {
+          created_at: string
+          email: string
+          user_id: string
+        }[]
+      }
+      list_pending_users: {
         Args: never
         Returns: {
           created_at: string
