@@ -757,8 +757,7 @@ function AccessAdmin() {
 
   async function approve(userId: string) {
     setMsg(null);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { error } = await (supabase.rpc as any)("grant_admin_by_user_id", { _user_id: userId });
+    const { error } = await supabase.rpc("grant_admin_by_user_id", { _user_id: userId });
     if (error) setMsg(error.message); else { setMsg("Acesso concedido."); reload(); }
   }
 
