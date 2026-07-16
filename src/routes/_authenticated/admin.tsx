@@ -737,18 +737,22 @@ function AccessAdmin() {
   const reload = useCallback(async () => {
     setLoading(true);
     setError(null);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const rpc = supabase.rpc as any;
-    const [p, a] = await Promise.all([
-      rpc("list_pending_users"),
-      rpc("list_admin_users"),
-    ]);
-    if (p.error) setError(p.error.message);
-    else setPending((p.data ?? []) as UserRow[]);
-    if (a.error) setError(a.error.message);
-    else setAdmins((a.data ?? []) as UserRow[]);
-    setLoading(false);
+    try {
+      const [p, a] = await Promise.all([
+        supabase.rpc("list_pending_users"),
+        supabase.rpc("list_admin_users"),
+      ]);
+      if (p.error) setError(p.error.message);
+      else setPending((p.data ?? []) as UserRow[]);
+      if (a.error) setError(a.error.message);
+      else setAdmins((a.data ?? []) as UserRow[]);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
   useEffect(() => { reload(); }, [reload]);
 
   async function approve(userId: string) {
